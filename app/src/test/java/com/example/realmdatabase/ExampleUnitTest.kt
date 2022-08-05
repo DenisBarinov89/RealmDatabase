@@ -1,5 +1,6 @@
 package com.example.realmdatabase
 
+import com.example.realmdatabase.data.ContactRepositoryImpl
 import org.junit.Test
 
 import org.junit.Assert.*

@@ -4,10 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import androidx.lifecycle.*
 import com.example.realmdatabase.databinding.ActivityMainBinding
-import io.realm.Realm
+import com.example.realmdatabase.ui.AddContactActivity
+import com.example.realmdatabase.ui.ContactsAdapter
+import com.example.realmdatabase.ui.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), LifecycleObserver {
@@ -41,7 +42,14 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val adapter = ContactsAdapter()
+        val adapter = ContactsAdapter (
+            { id -> viewModel.deleteContact(id) },
+            { id ->
+                val intent = Intent(this, AddContactActivity::class.java)
+                intent.putExtra("id", id)
+                startActivity(intent)
+            }
+        )
 
         viewModel.allContacts.observe(this) {
             adapter.setData(it)

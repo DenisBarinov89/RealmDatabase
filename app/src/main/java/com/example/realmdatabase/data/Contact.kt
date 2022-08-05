@@ -1,4 +1,4 @@
-package com.example.realmdatabase
+package com.example.realmdatabase.data
 
 import io.realm.RealmModel
 import io.realm.annotations.PrimaryKey

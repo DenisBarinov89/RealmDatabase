@@ -1,5 +1,6 @@
-package com.example.realmdatabase
+package com.example.realmdatabase.ui
 
+import com.example.realmdatabase.data.ContactRepository
 import com.example.realmdatabase.presenter.MainAction
 
 class Presenter(private val contactRepository: ContactRepository) {
@@ -15,4 +16,11 @@ class Presenter(private val contactRepository: ContactRepository) {
         contactRepository.addContact(name, surname, number)
         mainAction?.onAddContact(contactRepository.getContact())
     }
+
+    fun editContact(id: String, name: String, surname: String, number: String) {
+        contactRepository.editContact(id, name, surname, number)
+    }
+
+
+
 }

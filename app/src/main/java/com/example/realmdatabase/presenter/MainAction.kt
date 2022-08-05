@@ -1,6 +1,6 @@
 package com.example.realmdatabase.presenter
 
-import com.example.realmdatabase.Contact
+import com.example.realmdatabase.data.Contact
 
 interface MainAction {
 
